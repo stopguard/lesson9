@@ -6,3 +6,53 @@ r"""
         Для каждого класса метод должен выводить уникальное сообщение;
     создать экземпляры классов и проверить, что выведет описанный метод для каждого экземпляра.
 """
+
+
+class Stationery:
+    """Родительский класс (канцелярская принадлежность)"""
+    def __init__(self, title):
+        self.title = title
+
+    def draw(self):
+        """Запуск отрисовки"""
+        print('Запуск отрисовки')
+
+
+class Pen(Stationery):
+    """Дочерний класс 'ручка'"""
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        """Запуск отрисовки ручкой"""
+        print(f'Отрисовка тонкой линии с помощью объекта "{self.title}"')
+
+
+class Handle(Stationery):
+    """Дочерний класс 'маркер'"""
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        """Запуск отрисовки маркером"""
+        print(f'Отрисовка толстой линии с помощью объекта "{self.title}"')
+
+
+class Pencil(Stationery):
+    """Дочерний класс 'карандаш'"""
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        """Запуск отрисовки карандашом"""
+        print(f'Объект "{self.title}" сломался =(')
+
+
+# создаём объекты
+pen = Pen('ручка')
+handle = Handle('маркер')
+pencil = Pencil('карандаш')
+# вызываем методы
+pen.draw()
+handle.draw()
+pencil.draw()
