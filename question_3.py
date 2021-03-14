@@ -47,7 +47,7 @@ class Position(Worker):
 
 positions = set()   # множество рабочих позиций
 
-"""Создаём работников, переносим их параметры в рабочие позиции, добавляем позиции в множество"""
+# Создаём работников, переносим их параметры в рабочие позиции, добавляем позиции в множество
 worker1 = Worker({'wage': 15000, 'bonus': 200}, 'Василий', 'Петров', 'Инженер')
 position1 = Position(worker1.income, worker1.name, worker1.surname, worker1.position)
 positions.add(position1)
