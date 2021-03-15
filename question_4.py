@@ -16,11 +16,12 @@ from random import randint, choice
 
 class Car:
     """Родительский класс авто"""
-    def __init__(self, speed: int, color: str, name: str, is_police: bool):
+    is_police = False
+
+    def __init__(self, speed: int, color: str, name: str):
         self.speed = speed
         self.color = color
         self.name = name
-        self.is_police = is_police
 
     def go(self):
         """Старт авто со случайной скоростью"""
@@ -43,8 +44,7 @@ class Car:
 
 class TownCar(Car):
     """Дочерний класс - городское авто"""
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    is_police = False
 
     def show_speed(self):
         """Проверка скорости авто"""
@@ -54,14 +54,12 @@ class TownCar(Car):
 
 class SportCar(Car):
     """Дочерний класс - спортивное авто"""
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    is_police = False
 
 
 class WorkCar(Car):
     """Дочерний класс - грузовик"""
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    is_police = False
 
     def show_speed(self):
         """Проверка скорости авто"""
@@ -71,15 +69,14 @@ class WorkCar(Car):
 
 class PoliceCar(Car):
     """Дочерний класс - полицейское авто"""
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    is_police = True
 
 
 # создаём экземпляры
-t_car = TownCar(0, 'red', 'Taz', False)
-s_car = SportCar(0, 'yellow', 'Porshe', False)
-w_car = WorkCar(0, 'orange', 'MAN', False)
-p_car = PoliceCar(0, 'blue', 'Skoda', True)
+t_car = TownCar(0, 'red', 'Taz')
+s_car = SportCar(0, 'yellow', 'Porshe')
+w_car = WorkCar(0, 'orange', 'MAN')
+p_car = PoliceCar(0, 'blue', 'Skoda')
 cars_set = {t_car, s_car, w_car, p_car}
 
 # выводим атрибуты и результаты работы методов пока не будет отправлена пустая строка
